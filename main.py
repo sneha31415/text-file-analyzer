@@ -2,7 +2,7 @@ import os
 import re
 from collections import Counter
 
-class StringManager:
+class StringFunctions:
     def __init__(self, filepath):
         self.filepath = filepath
         self.lines = []
@@ -37,8 +37,8 @@ class StringManager:
         modified_lines = []
         for line in self.lines:
             if len(line) > 1:
-                line = line[0].upper() + line[1:-1] + line[-1].upper()  # Capitalize first and last chars
+                line = line[0].upper() + line[1:-1] + line[-1].upper()  
             elif len(line) == 1:
-                line = line.upper()  # Capitalize single character line
+                line = line.upper() 
             modified_lines.append(line)
         return modified_lines
