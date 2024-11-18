@@ -1,14 +1,15 @@
 import tkinter as tk
 from tkinter import *
 from tkinter import filedialog, messagebox
-from main import StringFunctions  
+from main import TextAnalyzer  
 
 class gui:
     def __init__(self, root):
         self.root = root
-        self.root.title("Welcome to Sneha's Text File Analyzer")
+        self.root.title("Welcome to Text File Analyzer")
         self.root.geometry("500x600")
-        self.root.manager = None 
+        # instance of String func
+        self.root.text_analyzer = None 
 
         # -----------load File button------
         self.load_button = Button(self.root, text="Load File", command=self.load_file, bd = 6, font = ("sans-serif", 10, "bold"), padx=15)
@@ -27,12 +28,14 @@ class gui:
         self.stats_textbox.pack(pady=10)
 
     def load_file(self):
-        """Load a file using a file dialog and process it."""
+        """
+        Loads a file using a file dialog and processes it to make first and last char as upper
+        """
         file_path = filedialog.askopenfilename(filetypes=[("Text Files", "*.txt")])
 
         if file_path:
             try:
-                self.manager = StringFunctions(file_path)
+                self.text_analyzer = TextAnalyzer(file_path)
                 self.display_modified_text()
             except Exception as e:
                 messagebox.showerror("Error", f"Error loading file: {e}")
@@ -41,8 +44,8 @@ class gui:
         """
         Display the modified text with capitalized first and last characters of each line.
         """
-        if self.manager:
-            modified_lines = self.manager.capitalize_first_last_chars()
+        if self.text_analyzer:
+            modified_lines = self.text_analyzer.capitalize_first_last_chars()
             self.modified_text_area.delete(1.0, END) 
             for line in modified_lines:
                 self.modified_text_area.insert(END, line + '\n')
@@ -51,10 +54,10 @@ class gui:
         """
         Display file statistics
         """
-        if self.manager:
-            lines_count = self.manager.count_lines()
-            unique_words_count = self.manager.count_unique_words()
-            word_freq = self.manager.word_frequencies()
+        if self.text_analyzer:
+            lines_count = self.text_analyzer.count_lines()
+            unique_words_count = self.text_analyzer.count_unique_words()
+            word_freq = self.text_analyzer.word_frequencies()
 
             summary_text = f"Number of Lines: {lines_count}\n"
             summary_text += f"Unique Words: {unique_words_count}\n\n"

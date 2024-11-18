@@ -2,7 +2,7 @@ import os
 import re
 from collections import Counter
 
-class StringFunctions:
+class TextAnalyzer:
     def __init__(self, filepath):
         self.filepath = filepath
         self.lines = []
