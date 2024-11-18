@@ -15,7 +15,7 @@ class gui:
         self.load_button = Button(self.root, text="Load File", command=self.load_file, bd = 6, font = ("sans-serif", 10, "bold"), padx=15)
         self.load_button.pack(pady=20)
 
-        # -----------input text----------
+        # -----------modified text area----------
         self.modified_text_area = Text(self.root, width=60, height=8)
         self.modified_text_area.pack(pady=10)
 
@@ -23,7 +23,7 @@ class gui:
         self.stats_button = Button(self.root, text="Show Statistics", command=self.display_summary, bg = "green", bd = 6, font = ("sans-serif", 10, "bold"))
         self.stats_button.pack(pady=5)
 
-        # ----------stats text box-----------
+        # ----------statistics text box-----------
         self.stats_textbox = Text(self.root, width=60, height=200, wrap=tk.WORD, bg="light gray")
         self.stats_textbox.pack(pady=10)
 
