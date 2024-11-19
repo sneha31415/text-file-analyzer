@@ -5,7 +5,7 @@
 ## Interface
 ![alt text](assets/image.png)
 
-**Result interface**
+**Result interface**<br>
 ![alt text](assets/image2.png)
 
 ## Features
