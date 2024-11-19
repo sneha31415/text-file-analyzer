@@ -10,30 +10,40 @@ class TextAnalyzer:
         self.load_file()
 
     def load_file(self):
-        """Load the file content."""
+        """
+        Load the file content
+        """
         if not os.path.exists(self.filepath):
             raise FileNotFoundError(f"The file {self.filepath} does not exist.")
         
         with open(self.filepath, 'r') as file:
             content = file.read()
         
-        self.words = re.findall(r'\b\w+\b', content.lower())  # Find all words
-        self.lines = content.splitlines()  # Get lines in the file
+        self.words = re.findall(r'\b\w+\b', content.lower())  
+        self.lines = content.splitlines()  
 
     def count_lines(self):
-        """Count the number of lines."""
+        """
+        Counts the number of lines
+        """
         return len(self.lines)
 
     def count_unique_words(self):
-        """Count unique words."""
+        """
+        Count unique words
+        """
         return len(set(self.words))
 
     def word_frequencies(self):
-        """Count the frequency of each word."""
+        """
+        Count the frequency of each word
+        """
         return dict(Counter(self.words))
 
     def capitalize_first_last_chars(self):
-        """Capitalize first and last characters of each line."""
+        """
+        Capitalize first and last characters of each line
+        """
         modified_lines = []
         for line in self.lines:
             if len(line) > 1:

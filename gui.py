@@ -61,7 +61,7 @@ class gui:
 
             summary_text = f"Number of Lines: {lines_count}\n"
             summary_text += f"Unique Words: {unique_words_count}\n\n"
-            summary_text += "Word F requencies:\n"
+            summary_text += "Word Frequencies:\n"
             for word, freq in word_freq.items():
                 summary_text += f"{word}: {freq}\n"
 

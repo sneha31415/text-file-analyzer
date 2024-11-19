@@ -2,6 +2,12 @@
 
 **Text File Analyzer** is a Python-based application that allows users to load a text file, perform various string operations, and display the statistics and modified content. The application includes functionalities such as counting lines, counting unique words, calculating word frequencies, and capitalizing the first and last character of each line.
 
+## Interface
+![alt text](\assets\image.png)
+
+**Result interface**
+![alt text](\assets\image2.png)
+
 ## Features
 
 - **Load a Text File**: Select and load a `.txt` file from your local system.
